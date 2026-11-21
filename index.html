@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Павло — портфоліо 2026</title>
+<meta name="description" content="Павло, дизайнер і frontend-розробник. Логотипи, айдентика та сайти для малих брендів. Роботи 2026 року.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: neutral gallery wall. The page stays grey and quiet,
+   each project brings its own colour inside its frame. Single light theme by choice. */
+:root{
+  color-scheme: light;
+  --paper:#ECECE8;
+  --panel:#F7F7F4;
+  --ink:#15161A;
+  --muted:#63656D;
+  --line:#CFCFC9;
+  --accent:#FF4F1F;
+  --display:"Unbounded","Golos Text",system-ui,sans-serif;
+  --body:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --wrap:1240px;
+  --gut:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--body);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.mono{font:500 12px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+
+/* header */
+.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;flex-wrap:wrap}
+.brand{font:700 15px/1 var(--display);text-decoration:none;letter-spacing:-.01em}
+.brand span{color:var(--accent)}
+.nav{display:flex;gap:clamp(14px,3vw,32px);flex-wrap:wrap}
+.nav a{text-decoration:none;font-size:15px;font-weight:500}
+.nav a:hover{color:var(--accent)}
+
+/* hero */
+.hero{padding-block:clamp(40px,7vw,96px) clamp(32px,5vw,64px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:end}
+h1{font:700 clamp(34px,6.2vw,84px)/1.02 var(--display);letter-spacing:-.035em;margin:18px 0 0;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:clamp(17px,1.5vw,20px);max-width:46ch;margin:0 0 24px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:999px;border:1.5px solid var(--ink);text-decoration:none;font-weight:600;font-size:15px;transition:background .15s,color .15s}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* index of works */
+.index{list-style:none;margin:clamp(36px,6vw,72px) 0 0;padding:0;border-top:1.5px solid var(--ink)}
+.index a{display:grid;grid-template-columns:48px minmax(0,1.1fr) minmax(0,1.6fr) auto;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.index .n{font:500 12px var(--mono);color:var(--muted)}
+.index .t{font:500 clamp(16px,1.8vw,22px)/1.2 var(--display);letter-spacing:-.02em}
+.index .d{color:var(--muted);font-size:15px}
+.index .k{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.index a:hover .t{color:var(--accent)}
+
+/* sections */
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;border-bottom:1.5px solid var(--ink);padding:clamp(48px,8vw,110px) 0 14px}
+h2{font:700 clamp(24px,3.4vw,44px)/1.05 var(--display);letter-spacing:-.03em;margin:0}
+.sec-head .mono{color:var(--muted)}
+
+.case{padding:clamp(32px,5vw,64px) 0;border-bottom:1px solid var(--line)}
+.case-head{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(20px,4vw,64px);margin-bottom:clamp(20px,3vw,36px)}
+.case-head .mono{color:var(--muted)}
+h3{font:700 clamp(28px,4.4vw,60px)/1 var(--display);letter-spacing:-.035em;margin:10px 0 0}
+.case-head p{margin:0 0 16px;max-width:52ch}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:6px 20px;margin:0;font-size:15px}
+.facts dt{font:500 12px/1.9 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:0}
+.live{display:inline-flex;align-items:center;gap:8px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
+.live:hover{color:var(--accent)}
+.live::after{content:"↗"}
+
+/* galleries */
+.shots{display:grid;gap:clamp(8px,1.2vw,16px)}
+.shots button{all:unset;display:block;cursor:zoom-in;border-radius:6px;overflow:hidden;background:var(--panel)}
+.shots button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.shots img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.shots button:hover img{transform:scale(1.02)}
+.g-liman{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g-liman .wide{grid-column:1/-1}
+.g-say{grid-template-columns:1fr;gap:0;border-radius:6px;overflow:hidden}
+.g-say button{border-radius:0}
+.g-kv{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g-kv .wide{grid-column:1/-1}
+.g-site{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g-site .wide{grid-column:1/-1}
+.g-wl{grid-template-columns:repeat(6,minmax(0,1fr))}
+.g-wl .wide{grid-column:1/-1}
+.g-wl .half{grid-column:span 3}
+.g-wl .desk{grid-column:span 4}
+.g-wl .phone{grid-column:span 1}
+.frame{border:1px solid var(--line)}
+
+/* contact */
+.contact{padding-block:clamp(56px,9vw,130px)}
+.contact h2{font-size:clamp(30px,5.4vw,72px);max-width:16ch;text-wrap:balance}
+.contact p{max-width:50ch;margin:20px 0 28px;font-size:clamp(17px,1.5vw,20px)}
+.offer{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:clamp(36px,6vw,72px);border-top:1.5px solid var(--ink)}
+.offer div{padding:18px 20px 4px 0;border-right:1px solid var(--line)}
+.offer div+div{padding-left:20px}
+.offer div:last-child{border-right:0}
+.offer b{display:block;font:500 18px/1.2 var(--display);letter-spacing:-.02em;margin:8px 0 6px}
+.offer span{color:var(--muted);font-size:15px}
+footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer p{margin:0;max-width:70ch}
+
+/* lightbox */
+dialog{border:0;padding:0;background:transparent;max-width:96vw;max-height:94vh}
+dialog::backdrop{background:rgba(15,16,20,.9)}
+dialog img{max-width:96vw;max-height:94vh;border-radius:4px;cursor:zoom-out}
+
+@media (max-width:860px){
+  .hero-grid,.case-head{grid-template-columns:1fr}
+  .index a{grid-template-columns:36px 1fr auto}
+  .index .d{display:none}
+  .g-wl .desk,.g-wl .half{grid-column:1/-1}
+  .g-wl .phone{grid-column:span 3}
+  .offer{grid-template-columns:1fr}
+  .offer div,.offer div+div{border-right:0;border-bottom:1px solid var(--line);padding:16px 0}
+}
+@media (max-width:520px){
+  .g-liman{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g-kv,.g-site{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.shots img{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Павло<span>.</span></a>
+    <nav class="nav" aria-label="Розділи">
+      <a href="#logos">Логотипи</a>
+      <a href="#sites">Сайти</a>
+      <a href="#contact">Контакти</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="mono">Портфоліо · 2026</span>
+        <h1>Логотипи та сайти для <em>малих брендів</em></h1>
+      </div>
+      <div>
+        <p class="lead">Я Павло, дизайнер і frontend-розробник. Роблю логотип, айдентику та сайт в одних руках: від ідеї до робочої сторінки в інтернеті.</p>
+        <div class="btns">
+          <a class="btn solid" href="#contact">Написати мені</a>
+          <a class="btn" href="#logos">Дивитися роботи</a>
+        </div>
+      </div>
+    </div>
+
+    <ol class="index">
+      <li><a href="#liman"><span class="n">01</span><span class="t">Liman</span><span class="d">Логотип ресторану морепродуктів, Одеса</span><span class="k">Логотип</span></a></li>
+      <li><a href="#saymore"><span class="n">02</span><span class="t">Saymore</span><span class="d">Логотип онлайн-школи англійської</span><span class="k">Логотип</span></a></li>
+      <li><a href="#kvatyrka"><span class="n">03</span><span class="t">Кватирка</span><span class="d">Айдентика та упаковка кав'ярні з власним обсмаженням</span><span class="k">Айдентика</span></a></li>
+      <li><a href="#kvatyrka-site"><span class="n">04</span><span class="t">Kvatyrka</span><span class="d">Сайт кав'ярні з меню та каталогом кави</span><span class="k">Сайт</span></a></li>
+      <li><a href="#wonderland"><span class="n">05</span><span class="t">Wonderland</span><span class="d">Інтернет-магазин іграшок для малюків</span><span class="k">Сайт</span></a></li>
+    </ol>
+  </section>
+
+  <!-- ================= ЛОГОТИПИ ================= -->
+  <section id="logos" class="wrap">
+    <div class="sec-head"><h2>Логотипи</h2><span class="mono">3 роботи</span></div>
+
+    <!-- Щоб додати роботу: скопіюйте блок <article class="case">…</article>,
+         замініть тексти та картинки в папці img/ і додайте рядок у список .index вище. -->
+
+    <article class="case" id="liman">
+      <div class="case-head">
+        <div>
+          <span class="mono">01 · Логотип</span>
+          <h3>Liman</h3>
+        </div>
+        <div>
+          <p>Ресторан морепродуктів в історичному центрі Одеси. Море показано без якорів, хвиль і синього: лангустин і бордовий, як келих вина одеського вечора.</p>
+          <dl class="facts">
+            <dt>Що зроблено</dt><dd>Знак, горизонтальна й вертикальна версії, кольорові варіанти</dd>
+            <dt>Носії</dt><dd>Вивіска, меню, пакет, візитки</dd>
+            <dt>Інструменти</dt><dd>Adobe Illustrator, Photoshop</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="shots g-liman">
+        <button class="wide"><img src="img/liman-horizontal.webp" width="1800" height="817" alt="Горизонтальний логотип Liman на бордовому фоні: лангустин і напис LIMAN, Seafood Odesa"></button>
+        <button><img src="img/liman-facade.webp" width="1080" height="1350" loading="lazy" alt="Вивіска Liman на фасаді ресторану ввечері"></button>
+        <button><img src="img/liman-menu.webp" width="1080" height="1350" loading="lazy" alt="Меню Liman у бордовій обкладинці зі знаком"></button>
+        <button><img src="img/liman-symbol.webp" width="1080" height="1350" loading="lazy" alt="Знак Liman: бордовий лангустин на світлому фоні"></button>
+        <button><img src="img/liman-packaging.webp" width="1080" height="1350" loading="lazy" alt="Паперовий пакет і коробка Liman"></button>
+        <button><img src="img/liman-stationery.webp" width="1080" height="1350" loading="lazy" alt="Конверт і візитки Liman"></button>
+        <button><img src="img/liman-logo.webp" width="1080" height="1350" loading="lazy" alt="Вертикальний логотип Liman на бордовому фоні"></button>
+      </div>
+    </article>
+
+    <article class="case" id="saymore">
+      <div class="case-head">
+        <div>
+          <span class="mono">02 · Логотип</span>
+          <h3>Saymore</h3>
+        </div>
+        <div>
+          <p>Онлайн-школа англійської. Знак побудовано на двокрапці: вона передає слово співрозмовнику. Менша й більша крапки читаються як «сказав» і «сказав більше».</p>
+          <dl class="facts">
+            <dt>Що зроблено</dt><dd>Знак, логотип, п'ять кольорових версій, перевірка в розмірах 16 і 24 px</dd>
+            <dt>Шрифт і колір</dt><dd>Onest Bold, кобальт #2531D8</dd>
+            <dt>Інструменти</dt><dd>Adobe Illustrator</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="shots g-say">
+        <button><img src="img/saymore-light.webp" width="1800" height="675" alt="Логотип saymore на світлому фоні: кобальтова плашка з двокрапкою і чорний напис"></button>
+        <button><img src="img/saymore-dark.webp" width="1800" height="675" loading="lazy" alt="Логотип saymore на темному фоні"></button>
+        <button><img src="img/saymore-cobalt.webp" width="1800" height="675" loading="lazy" alt="Логотип saymore на кобальтовому фоні"></button>
+      </div>
+    </article>
+
+    <article class="case" id="kvatyrka">
+      <div class="case-head">
+        <div>
+          <span class="mono">03 · Логотип та айдентика</span>
+          <h3>Кватирка</h3>
+        </div>
+        <div>
+          <p>Районна кав'ярня з власним обсмаженням. Ідея «Ранкове сонце»: восьма ранку, сонце проходить крізь відчинену кватирку й лягає на стіну. Звідси знак: аркове вікно з відчиненою стулкою і сонцем.</p>
+          <dl class="facts">
+            <dt>Що зроблено</dt><dd>Логотип, палітра з п'яти кольорів, упаковка дой-пак 250 г зі змінною етикеткою, карта лояльності</dd>
+            <dt>Шрифт</dt><dd>Geologica з українською кирилицею</dd>
+            <dt>Інструменти</dt><dd>Adobe Illustrator, Photoshop</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="shots g-kv">
+        <button class="wide"><img src="img/kvatyrka-cover.webp" width="1600" height="1200" loading="lazy" alt="Три пачки кави Кватирка: Ефіопія, Колумбія, Бразилія"></button>
+        <button><img src="img/kvatyrka-logo.webp" width="1600" height="1200" loading="lazy" alt="Версії логотипа Кватирка: горизонтальна, вертикальна, світла й темна"></button>
+        <button><img src="img/kvatyrka-system.webp" width="1600" height="1200" loading="lazy" alt="Візуальна система Кватирки: кольори, шрифт Geologica і сонячний відбиток"></button>
+        <button><img src="img/kvatyrka-pack.webp" width="1600" height="1200" loading="lazy" alt="Упаковка дой-пак 250 г і змінні етикетки"></button>
+        <button><img src="img/kvatyrka-card.webp" width="1600" height="1200" loading="lazy" alt="Карта лояльності «Десята — від нас» у трьох станах заповнення"></button>
+        <button class="wide"><img src="img/kvatyrka-final.webp" width="1600" height="1200" loading="lazy" alt="Карта лояльності та пачка кави Кватирка разом"></button>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================= САЙТИ ================= -->
+  <section id="sites" class="wrap">
+    <div class="sec-head"><h2>Сайти</h2><span class="mono">2 роботи</span></div>
+
+    <article class="case" id="kvatyrka-site">
+      <div class="case-head">
+        <div>
+          <span class="mono">04 · Сайт · дизайн і розробка</span>
+          <h3>Kvatyrka</h3>
+        </div>
+        <div>
+          <p>Сайт для тієї самої кав'ярні: меню, каталог кави з фільтром за обсмаженням, вибір помелу та демо-кошик. Працює без фреймворків і сторонніх бібліотек, увесь текст читається навіть без JavaScript.</p>
+          <dl class="facts">
+            <dt>Роль</dt><dd>Дизайн і розробка</dd>
+            <dt>Стек</dt><dd>HTML, CSS, JavaScript, Cloudflare Pages</dd>
+            <dt>Наживо</dt><dd><a class="live" href="https://kvatyrka.pages.dev/" target="_blank" rel="noopener">kvatyrka.pages.dev</a></dd>
+          </dl>
+        </div>
+      </div>
+      <div class="shots g-site">
+        <button class="wide"><img src="img/kvatyrka-site-hero.webp" width="1800" height="1350" loading="lazy" alt="Перший екран сайту Kvatyrka"></button>
+        <button><img src="img/kvatyrka-site-menu.webp" width="1400" height="1603" loading="lazy" alt="Сторінка меню сайту Kvatyrka"></button>
+        <button><img src="img/kvatyrka-site-mobile.webp" width="1800" height="1248" loading="lazy" alt="Мобільна версія сайту Kvatyrka: три екрани"></button>
+      </div>
+    </article>
+
+    <article class="case" id="wonderland">
+      <div class="case-head">
+        <div>
+          <span class="mono">05 · Сайт · розробка</span>
+          <h3>Wonderland</h3>
+        </div>
+        <div>
+          <p>Інтернет-магазин дерев'яних іграшок і речей для малюків від 0 до 3 років. Це робочий сайт: можна гортати каталог, класти товари в кошик і пройти оформлення замовлення у три кроки.</p>
+          <dl class="facts">
+            <dt>Роль</dt><dd>Розробка сайту на основі готової айдентики бренду</dd>
+            <dt>Функції</dt><dd>Фільтр за віком і сортування, кошик зі шкалою до безкоштовної доставки, перевірка полів, адаптив від 320 px</dd>
+            <dt>Якість</dt><dd>Lighthouse 100 за доступність і SEO, 132 автотести</dd>
+            <dt>Наживо</dt><dd><a class="live" href="https://wonderlandbabyshop.pages.dev/" target="_blank" rel="noopener">wonderlandbabyshop.pages.dev</a></dd>
+          </dl>
+        </div>
+      </div>
+      <div class="shots g-wl">
+        <button class="wide frame"><img src="img/wonderland-home.webp" width="1800" height="999" loading="lazy" alt="Головна сторінка магазину Wonderland"></button>
+        <button class="desk frame"><img src="img/wonderland-shop.webp" width="1600" height="1116" loading="lazy" alt="Каталог Wonderland з фільтрами"></button>
+        <button class="phone frame"><img src="img/wonderland-mobile.webp" width="700" height="1515" loading="lazy" alt="Мобільна головна Wonderland"></button>
+        <button class="phone frame"><img src="img/wonderland-mobile-shop.webp" width="700" height="1515" loading="lazy" alt="Мобільний каталог Wonderland"></button>
+        <button class="half frame"><img src="img/wonderland-product.webp" width="1600" height="908" loading="lazy" alt="Сторінка товару Wonderland"></button>
+        <button class="half frame"><img src="img/wonderland-cart.webp" width="1600" height="1000" loading="lazy" alt="Кошик Wonderland, що виїжджає збоку"></button>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================= КОНТАКТИ ================= -->
+  <section id="contact" class="wrap contact">
+    <span class="mono">Контакти</span>
+    <h2>Потрібен логотип чи сайт?</h2>
+    <p>Напишіть у дірект, що у вас за бренд і що потрібно. Відповім, скільки це займе часу та скільки коштуватиме.</p>
+    <div class="btns">
+      <a class="btn solid" href="https://www.threads.com/@pavlowdgd" target="_blank" rel="noopener">Threads · @pavlowdgd</a>
+      <a class="btn" href="https://www.instagram.com/pavlowdgd/" target="_blank" rel="noopener">Instagram · @pavlowdgd</a>
+    </div>
+
+    <div class="offer">
+      <div><span class="mono">Послуга</span><b>Логотип</b><span>Знак, версії для світлого й темного фону, файли для друку та соцмереж.</span></div>
+      <div><span class="mono">Послуга</span><b>Сайт</b><span>Лендинг або інтернет-магазин: дизайн, верстка, публікація в інтернеті.</span></div>
+      <div><span class="mono">Послуга</span><b>Оформлення</b><span>Упаковка, візитки, шаблони для Instagram у стилі бренду.</span></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Усі п'ять проєктів концептуальні, зроблені для портфоліо: бренди вигадані, замовлень і оплат на сайтах немає. Фотовізуалізації згенеровано за векторними макетами.</p>
+    <p>© 2026 Павло</p>
+  </div>
+</footer>
+
+<dialog id="zoom" aria-label="Збільшене зображення"><img alt=""></dialog>
+<script>
+(function(){
+  var d=document.getElementById('zoom'); if(!d||!d.showModal) return;
+  var big=d.querySelector('img');
+  document.querySelectorAll('.shots button').forEach(function(b){
+    b.setAttribute('type','button');
+    b.addEventListener('click',function(){
+      var i=b.querySelector('img'); big.src=i.src; big.alt=i.alt; d.showModal();
+    });
+  });
+  d.addEventListener('click',function(){ d.close(); });
+})();
+</script>
+</body>
+</html>
