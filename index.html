@@ -90,6 +90,8 @@ h3{font:700 clamp(28px,4.4vw,60px)/1 var(--display);letter-spacing:-.035em;margi
 .g-liman .wide{grid-column:1/-1}
 .g-say{grid-template-columns:1fr;gap:0;border-radius:6px;overflow:hidden}
 .g-say button{border-radius:0}
+.g-forma{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g-forma .wide{grid-column:1/-1}
 .g-kv{grid-template-columns:repeat(2,minmax(0,1fr))}
 .g-kv .wide{grid-column:1/-1}
 .g-site{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -121,6 +123,7 @@ dialog::backdrop{background:rgba(15,16,20,.9)}
 dialog img{max-width:96vw;max-height:94vh;border-radius:4px;cursor:zoom-out}
 
 @media (max-width:860px){
+  .g-forma{grid-template-columns:repeat(2,minmax(0,1fr))}
   .hero-grid,.case-head{grid-template-columns:1fr}
   .index a{grid-template-columns:36px 1fr auto}
   .index .d{display:none}
@@ -132,6 +135,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:4px;cursor:zoom-out}
 @media (max-width:520px){
   .g-liman{grid-template-columns:repeat(2,minmax(0,1fr))}
   .g-kv,.g-site{grid-template-columns:1fr}
+  .g-forma{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.shots img{transition:none}}
 </style>
@@ -169,14 +173,15 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:4px;cursor:zoom-out}
       <li><a href="#liman"><span class="n">01</span><span class="t">Liman</span><span class="d">Логотип ресторану морепродуктів, Одеса</span><span class="k">Логотип</span></a></li>
       <li><a href="#saymore"><span class="n">02</span><span class="t">Saymore</span><span class="d">Логотип онлайн-школи англійської</span><span class="k">Логотип</span></a></li>
       <li><a href="#kvatyrka"><span class="n">03</span><span class="t">Кватирка</span><span class="d">Айдентика та упаковка кав'ярні з власним обсмаженням</span><span class="k">Айдентика</span></a></li>
-      <li><a href="#kvatyrka-site"><span class="n">04</span><span class="t">Kvatyrka</span><span class="d">Сайт кав'ярні з меню та каталогом кави</span><span class="k">Сайт</span></a></li>
-      <li><a href="#wonderland"><span class="n">05</span><span class="t">Wonderland</span><span class="d">Інтернет-магазин іграшок для малюків</span><span class="k">Сайт</span></a></li>
+      <li><a href="#forma"><span class="n">04</span><span class="t">FORMA</span><span class="d">Логотип студії дизайну інтер'єру</span><span class="k">Логотип</span></a></li>
+      <li><a href="#kvatyrka-site"><span class="n">05</span><span class="t">Kvatyrka</span><span class="d">Сайт кав'ярні з меню та каталогом кави</span><span class="k">Сайт</span></a></li>
+      <li><a href="#wonderland"><span class="n">06</span><span class="t">Wonderland</span><span class="d">Інтернет-магазин іграшок для малюків</span><span class="k">Сайт</span></a></li>
     </ol>
   </section>
 
   <!-- ================= ЛОГОТИПИ ================= -->
   <section id="logos" class="wrap">
-    <div class="sec-head"><h2>Логотипи</h2><span class="mono">3 роботи</span></div>
+    <div class="sec-head"><h2>Логотипи</h2><span class="mono">4 роботи</span></div>
 
     <!-- Щоб додати роботу: скопіюйте блок <article class="case">…</article>,
          замініть тексти та картинки в папці img/ і додайте рядок у список .index вище. -->
@@ -253,6 +258,29 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:4px;cursor:zoom-out}
         <button class="wide"><img src="img/kvatyrka-final.webp" width="1600" height="1200" loading="lazy" alt="Карта лояльності та пачка кави Кватирка разом"></button>
       </div>
     </article>
+    <article class="case" id="forma">
+      <div class="case-head">
+        <div>
+          <span class="mono">04 · Логотип та айдентика</span>
+          <h3>FORMA</h3>
+        </div>
+        <div>
+          <p>Студія дизайну інтер'єру, яка проєктує житлові простори з архітектурною точністю. Без будиночків і крісел у логотипі. Ідея — анфілада: літери ділять стіни, як кімнати. F і O мають спільну верхню лінію, O і R — стіну, M і A стоять на одній стійці.</p>
+          <dl class="facts">
+            <dt>Що зроблено</dt><dd>Логотип без готового шрифту, знак FO і фавікони, палітра, шрифти, брендбук, файли для екрана й друку</dd>
+            <dt>Шрифти</dt><dd>Inter Tight, Literata</dd>
+            <dt>Інструменти</dt><dd>Adobe Illustrator</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="shots g-forma">
+        <button class="wide"><img src="img/forma-cover.webp" width="1800" height="1012" loading="lazy" alt="Логотип FORMA на оливковому фоні, студія дизайну інтер'єру"></button>
+        <button><img src="img/forma-idea.webp" width="1080" height="1350" loading="lazy" alt="Ідея логотипа FORMA: літери ділять стіни, як кімнати в анфіладі"></button>
+        <button><img src="img/forma-mark.webp" width="1080" height="1350" loading="lazy" alt="Знак FO, вирізаний із логотипа"></button>
+        <button><img src="img/forma-system.webp" width="1080" height="1350" loading="lazy" alt="Палітра FORMA: олива, молочний, камінь, графіт і два шрифти"></button>
+        <button><img src="img/forma-life.webp" width="1080" height="1350" loading="lazy" alt="FORMA на фавіконі, сайті та презентації"></button>
+      </div>
+    </article>
   </section>
 
   <!-- ================= САЙТИ ================= -->
@@ -262,7 +290,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:4px;cursor:zoom-out}
     <article class="case" id="kvatyrka-site">
       <div class="case-head">
         <div>
-          <span class="mono">04 · Сайт · дизайн і розробка</span>
+          <span class="mono">05 · Сайт · дизайн і розробка</span>
           <h3>Kvatyrka</h3>
         </div>
         <div>
@@ -284,7 +312,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:4px;cursor:zoom-out}
     <article class="case" id="wonderland">
       <div class="case-head">
         <div>
-          <span class="mono">05 · Сайт · розробка</span>
+          <span class="mono">06 · Сайт · розробка</span>
           <h3>Wonderland</h3>
         </div>
         <div>
@@ -328,7 +356,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:4px;cursor:zoom-out}
 
 <footer>
   <div class="wrap">
-    <p>Усі п'ять проєктів концептуальні, зроблені для портфоліо: бренди вигадані, замовлень і оплат на сайтах немає. Фотовізуалізації згенеровано за векторними макетами.</p>
+    <p>Усі шість проєктів концептуальні, зроблені для портфоліо: бренди вигадані, замовлень і оплат на сайтах немає. Фотовізуалізації згенеровано за векторними макетами.</p>
     <p>© 2026 Павло</p>
   </div>
 </footer>
