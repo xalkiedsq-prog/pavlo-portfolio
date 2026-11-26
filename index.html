@@ -80,11 +80,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .peek{position:fixed;left:0;top:0;z-index:20;width:300px;aspect-ratio:16/10;border-radius:6px;overflow:hidden;pointer-events:none;opacity:0;box-shadow:0 24px 48px -24px rgba(21,22,26,.45);transition:opacity .2s ease}
 .peek.on{opacity:1}
 .peek img{width:100%;height:100%;object-fit:cover}
-/* мітка «Збільшити» замість курсора над скриншотами */
-.zoom-tag{position:fixed;left:0;top:0;z-index:20;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px 0 10px;border-radius:999px;background:var(--c,var(--ink));color:#fff;font:500 10.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;pointer-events:none;opacity:0;scale:.85;transform-origin:0 0;box-shadow:0 8px 20px -10px rgba(21,22,26,.5);transition:opacity .45s cubic-bezier(.22,1,.36,1),scale .45s cubic-bezier(.22,1,.36,1),background-color .3s}
-.zoom-tag::before{content:"+";font-size:13px;line-height:1}
-.zoom-tag.on{opacity:1;scale:1}
-@media (hover:hover) and (pointer:fine){.js .shots button{cursor:zoom-in}}
+.shots button{cursor:zoom-in}
 /* кольорова мітка проєкту */
 .case-head .mono::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--c,var(--accent));margin-right:10px;vertical-align:1px}
 .case .live:hover{color:var(--c,var(--accent))}
@@ -470,7 +466,6 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:4px;cursor:zoom-out}
 
 <dialog id="zoom" aria-label="Збільшене зображення"><img alt=""></dialog>
 <div class="peek" aria-hidden="true"><img alt=""></div>
-<div class="zoom-tag" aria-hidden="true">Збільшити</div>
 <script>
 document.documentElement.classList.add('js');
 (function(){
@@ -496,13 +491,6 @@ document.documentElement.classList.add('js');
       a.addEventListener('mouseenter',function(e){pimg.src=a.dataset.peek;peek.style.outline='2px solid '+getComputedStyle(a).getPropertyValue('--c');pf.move(e,true);peek.classList.add('on')});
       a.addEventListener('mousemove',function(e){pf.move(e)});
       a.addEventListener('mouseleave',function(){peek.classList.remove('on')});
-    });
-    /* мітка «Збільшити» */
-    var tag=document.querySelector('.zoom-tag'),zf=follower(tag,18,18,.14);document.addEventListener('mousemove',function(e){if(tag.classList.contains('on')||tag.dataset.fading)zf.move(e)},{passive:true});
-    document.querySelectorAll('.shots button').forEach(function(b){
-      b.addEventListener('mouseenter',function(e){var cs=b.closest('.case');tag.style.setProperty('--c',cs?getComputedStyle(cs).getPropertyValue('--c'):'');zf.move(e,true);tag.classList.add('on')});
-      b.addEventListener('mousemove',function(e){zf.move(e)});
-      b.addEventListener('mouseleave',function(){tag.classList.remove('on');tag.dataset.fading='1';clearTimeout(tag._t);tag._t=setTimeout(function(){delete tag.dataset.fading},450)});
     });
   }
 
