@@ -37,13 +37,18 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 /* header */
 .top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;flex-wrap:wrap}
-.brand{font:700 15px/1 var(--display);text-decoration:none;letter-spacing:-.01em}
-.brand span{color:var(--accent)}
-.nav{display:flex;gap:clamp(14px,3vw,32px);flex-wrap:wrap}
-.nav a{text-decoration:none;font-size:15px;font-weight:500}
-.nav a:hover{color:var(--accent)}
-.nav{align-items:center}
-.nav .nav-cta{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--accent);color:var(--ink);font-weight:600;transition:background .15s,color .15s}
+.brand{display:inline-flex;align-items:baseline;font:700 15px/1 var(--display);text-decoration:none;letter-spacing:-.01em}
+.brand span{color:var(--accent);margin:0 .08em}
+.brand b{font-weight:inherit}
+.brand small{font:500 13px/1 var(--mono);letter-spacing:0}
+.nav{display:flex;align-items:center;gap:clamp(6px,1.6vw,20px);flex-wrap:wrap}
+.nav a{position:relative;display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 6px;text-decoration:none;font-size:15px;font-weight:500}
+.nav a i{font:500 11px/1 var(--mono);font-style:normal;color:var(--muted);transition:color .2s}
+.nav a:not(.nav-cta)::after{content:"";position:absolute;left:6px;right:6px;bottom:9px;height:1.5px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.nav a:not(.nav-cta):hover::after,.nav a:not(.nav-cta):focus-visible::after{transform:scaleX(1)}
+.nav a:hover i{color:var(--accent)}
+.nav .nav-cta{gap:9px;padding:0 16px 0 14px;margin-left:6px;border:1.5px solid var(--ink);border-radius:999px;font-weight:600;transition:background .2s,color .2s}
+.nav .nav-cta::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
 .nav .nav-cta:hover{background:var(--ink);color:var(--paper)}
 
 /* hero */
@@ -145,17 +150,18 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:4px;cursor:zoom-out}
   .g-kv,.g-site{grid-template-columns:1fr}
   .g-forma{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.shots img{transition:none}}
+@media (max-width:520px){.nav a i,.brand b{display:none}.nav{gap:2px}.nav a{padding:0 5px}.nav .nav-cta{padding:0 12px 0 11px;gap:7px;margin-left:4px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.shots img,.nav a::after{transition:none}}
 </style>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top">Павло<span>.</span></a>
+    <a class="brand" href="#top" aria-label="Портфоліо Павла, на початок">П<b>ортфоліо</b><span>/</span><small>26</small></a>
     <nav class="nav" aria-label="Розділи">
-      <a href="#logos">Логотипи</a>
-      <a href="#sites">Сайти</a>
+      <a href="#logos"><i>01</i>Логотипи</a>
+      <a href="#sites"><i>02</i>Сайти</a>
       <a class="nav-cta" href="#contact">Зв'язатися</a>
     </nav>
   </div>
@@ -165,7 +171,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:4px;cursor:zoom-out}
   <section class="hero wrap">
     <div class="hero-grid">
       <div>
-        <span class="mono">Портфоліо · 2026</span>
+        <span class="mono">Павло · дизайн і розробка</span>
         <h1>Логотипи та сайти для <em>малих брендів</em></h1>
       </div>
       <div>
