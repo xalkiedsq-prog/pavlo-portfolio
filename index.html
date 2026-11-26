@@ -96,11 +96,11 @@ h3{font:700 clamp(28px,4.4vw,60px)/1 var(--display);letter-spacing:-.035em;margi
 .g-kv .wide{grid-column:1/-1}
 .g-site{grid-template-columns:repeat(2,minmax(0,1fr))}
 .g-site .wide{grid-column:1/-1}
-.g-wl{grid-template-columns:repeat(6,minmax(0,1fr))}
-.g-wl .wide{grid-column:1/-1}
-.g-wl .half{grid-column:span 3}
-.g-wl .desk{grid-column:span 4}
-.g-wl .phone{grid-column:span 1}
+.g-wl,.g-sol{grid-template-columns:repeat(6,minmax(0,1fr))}
+.g-wl .wide,.g-sol .wide{grid-column:1/-1}
+.g-wl .half,.g-sol .half{grid-column:span 3}
+.g-wl .desk,.g-sol .desk{grid-column:span 4}
+.g-wl .phone,.g-sol .phone{grid-column:span 1}
 .frame{border:1px solid var(--line)}
 
 /* contact */
@@ -127,8 +127,8 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:4px;cursor:zoom-out}
   .hero-grid,.case-head{grid-template-columns:1fr}
   .index a{grid-template-columns:36px 1fr auto}
   .index .d{display:none}
-  .g-wl .desk,.g-wl .half{grid-column:1/-1}
-  .g-wl .phone{grid-column:span 3}
+  .g-wl .desk,.g-wl .half,.g-sol .desk,.g-sol .half{grid-column:1/-1}
+  .g-wl .phone,.g-sol .phone{grid-column:span 3}
   .offer{grid-template-columns:1fr}
   .offer div,.offer div+div{border-right:0;border-bottom:1px solid var(--line);padding:16px 0}
 }
@@ -176,6 +176,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:4px;cursor:zoom-out}
       <li><a href="#forma"><span class="n">04</span><span class="t">FORMA</span><span class="d">Логотип студії дизайну інтер'єру</span><span class="k">Логотип</span></a></li>
       <li><a href="#kvatyrka-site"><span class="n">05</span><span class="t">Kvatyrka</span><span class="d">Сайт кав'ярні з меню та каталогом кави</span><span class="k">Сайт</span></a></li>
       <li><a href="#wonderland"><span class="n">06</span><span class="t">Wonderland</span><span class="d">Інтернет-магазин іграшок для малюків</span><span class="k">Сайт</span></a></li>
+      <li><a href="#solea"><span class="n">07</span><span class="t">SOLÉA</span><span class="d">Сайт бутик-готелю в Апулії з бронюванням</span><span class="k">Сайт</span></a></li>
     </ol>
   </section>
 
@@ -285,7 +286,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:4px;cursor:zoom-out}
 
   <!-- ================= САЙТИ ================= -->
   <section id="sites" class="wrap">
-    <div class="sec-head"><h2>Сайти</h2><span class="mono">2 роботи</span></div>
+    <div class="sec-head"><h2>Сайти</h2><span class="mono">3 роботи</span></div>
 
     <article class="case" id="kvatyrka-site">
       <div class="case-head">
@@ -334,6 +335,35 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:4px;cursor:zoom-out}
         <button class="half frame"><img src="img/wonderland-cart.webp" width="1600" height="1000" loading="lazy" alt="Кошик Wonderland, що виїжджає збоку"></button>
       </div>
     </article>
+
+    <article class="case" id="solea">
+      <div class="case-head">
+        <div>
+          <span class="mono">07 · Сайт · дизайн і розробка</span>
+          <h3>SOLÉA</h3>
+        </div>
+        <div>
+          <p>Бутик-готель у старій масерії серед олив Апулії. Сайти таких готелів зазвичай або продають атмосферу без зручного бронювання, або бронюють без атмосфери. Тут обидві частини в одному тоні: спокійна журнальна подача, без ефектних анімацій, і бронювання у п'ять кроків, де гість на кожному етапі бачить кількість ночей і суму.</p>
+          <dl class="facts">
+            <dt>Роль</dt><dd>Айдентика, дизайн і розробка</dd>
+            <dt>Айдентика</dt><dd>Контурний логотип на Cormorant з теракотовим акцентом над É, палітра: лісовий зелений, теплий камінь, теракота</dd>
+            <dt>Сторінки</dt><dd>Головна, номери і три сторінки номерів, враження, історія, контакти, 404</dd>
+            <dt>Бронювання</dt><dd>Дати й гості → номер за місткістю → підсумок → дані гостя → підтвердження з демо-номером заявки. Заїзд не в минулому, від 1 до 21 ночі, не далі ніж на 18 місяців; номер зі сторінки номера переходить у бронювання, стан не губиться після перезавантаження</dd>
+            <dt>Стек</dt><dd>React 19, TypeScript, Vite, Tailwind CSS v4, React Router, Cloudflare Pages</dd>
+            <dt>Якість</dt><dd>Доступність з клавіатури, видимий фокус, зрозумілі помилки у формах, SEO-теги для кожної сторінки, адаптив від 375 px, 37 автотестів у Playwright</dd>
+            <dt>Наживо</dt><dd><a class="live" href="https://solea-hotel.pages.dev/" target="_blank" rel="noopener">solea-hotel.pages.dev</a></dd>
+          </dl>
+        </div>
+      </div>
+      <div class="shots g-sol">
+        <button class="wide frame"><img src="img/solea-home.webp" width="1800" height="1000" loading="lazy" alt="Перший екран сайту SOLÉA: оливковий гай на світанку і заголовок готелю"></button>
+        <button class="desk frame"><img src="img/solea-room.webp" width="1600" height="1116" loading="lazy" alt="Сторінка номера Signature Suite з галереєю фото"></button>
+        <button class="phone frame"><img src="img/solea-mobile.webp" width="700" height="1515" loading="lazy" alt="Мобільна головна SOLÉA"></button>
+        <button class="phone frame"><img src="img/solea-mobile-booking.webp" width="700" height="1515" loading="lazy" alt="Мобільне бронювання SOLÉA, крок 3 з 5"></button>
+        <button class="half frame"><img src="img/solea-booking-room.webp" width="1600" height="907" loading="lazy" alt="Бронювання SOLÉA, крок вибору номера з ціною за чотири ночі"></button>
+        <button class="half frame"><img src="img/solea-booking-details.webp" width="1600" height="1000" loading="lazy" alt="Бронювання SOLÉA, форма даних гостя поруч із підсумком і загальною сумою"></button>
+      </div>
+    </article>
   </section>
 
   <!-- ================= КОНТАКТИ ================= -->
@@ -356,7 +386,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:4px;cursor:zoom-out}
 
 <footer>
   <div class="wrap">
-    <p>Усі шість проєктів концептуальні, зроблені для портфоліо: бренди вигадані, замовлень і оплат на сайтах немає. Фотовізуалізації згенеровано за векторними макетами.</p>
+    <p>Усі сім проєктів концептуальні, зроблені для портфоліо: бренди вигадані, замовлень, бронювань і оплат на сайтах немає. Фотовізуалізації згенеровано за векторними макетами; фотографії на сайті SOLÉA взято з Unsplash, це не реальне місце.</p>
     <p>© 2026 Павло</p>
   </div>
 </footer>
