@@ -81,9 +81,10 @@ h1 em{font-style:normal;color:var(--accent)}
 .peek.on{opacity:1}
 .peek img{width:100%;height:100%;object-fit:cover}
 /* мітка «Збільшити» замість курсора над скриншотами */
-.zoom-tag{position:fixed;left:0;top:0;z-index:20;display:grid;place-items:center;width:86px;height:86px;border-radius:50%;background:var(--c,var(--ink));color:#fff;font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;pointer-events:none;opacity:0;scale:.6;transition:opacity .2s ease,scale .25s cubic-bezier(.22,1,.36,1)}
+.zoom-tag{position:fixed;left:0;top:0;z-index:20;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px 0 10px;border-radius:999px;background:var(--c,var(--ink));color:#fff;font:500 10.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;pointer-events:none;opacity:0;scale:.85;transform-origin:0 0;box-shadow:0 8px 20px -10px rgba(21,22,26,.5);transition:opacity .45s cubic-bezier(.22,1,.36,1),scale .45s cubic-bezier(.22,1,.36,1),background-color .3s}
+.zoom-tag::before{content:"+";font-size:13px;line-height:1}
 .zoom-tag.on{opacity:1;scale:1}
-@media (hover:hover) and (pointer:fine){.js .shots button{cursor:none}}
+@media (hover:hover) and (pointer:fine){.js .shots button{cursor:zoom-in}}
 /* кольорова мітка проєкту */
 .case-head .mono::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--c,var(--accent));margin-right:10px;vertical-align:1px}
 .case .live:hover{color:var(--c,var(--accent))}
@@ -481,9 +482,9 @@ document.documentElement.classList.add('js');
   var still=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
   /* елемент, що м'яко йде за курсором */
-  function follower(el,ox,oy){
+  function follower(el,ox,oy,k){k=k||.18;
     var x=0,y=0,tx=0,ty=0,raf=0;
-    function loop(){x+=(tx-x)*(still?1:.18);y+=(ty-y)*(still?1:.18);el.style.transform='translate3d('+(x+ox)+'px,'+(y+oy)+'px,0)';
+    function loop(){x+=(tx-x)*(still?1:k);y+=(ty-y)*(still?1:k);el.style.transform='translate3d('+(x+ox)+'px,'+(y+oy)+'px,0)';
       if(Math.abs(tx-x)>.3||Math.abs(ty-y)>.3){raf=requestAnimationFrame(loop)}else{raf=0}}
     return {move:function(e,jump){tx=e.clientX;ty=e.clientY;if(jump){x=tx;y=ty}if(!raf)raf=requestAnimationFrame(loop)}};
   }
@@ -497,11 +498,11 @@ document.documentElement.classList.add('js');
       a.addEventListener('mouseleave',function(){peek.classList.remove('on')});
     });
     /* мітка «Збільшити» */
-    var tag=document.querySelector('.zoom-tag'),zf=follower(tag,-43,-43);
+    var tag=document.querySelector('.zoom-tag'),zf=follower(tag,18,18,.14);document.addEventListener('mousemove',function(e){if(tag.classList.contains('on')||tag.dataset.fading)zf.move(e)},{passive:true});
     document.querySelectorAll('.shots button').forEach(function(b){
       b.addEventListener('mouseenter',function(e){var cs=b.closest('.case');tag.style.setProperty('--c',cs?getComputedStyle(cs).getPropertyValue('--c'):'');zf.move(e,true);tag.classList.add('on')});
       b.addEventListener('mousemove',function(e){zf.move(e)});
-      b.addEventListener('mouseleave',function(){tag.classList.remove('on')});
+      b.addEventListener('mouseleave',function(){tag.classList.remove('on');tag.dataset.fading='1';clearTimeout(tag._t);tag._t=setTimeout(function(){delete tag.dataset.fading},450)});
     });
   }
 
